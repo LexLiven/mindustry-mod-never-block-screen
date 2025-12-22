@@ -1,0 +1,8 @@
+displayName: "QoL Never Lock Screen"
+name: "QoLNeverLockScreenMod"
+author: "Lex_Liven"
+main: "qolneverlockscreen.QoLNeverLockScreenMod"
+description: "Prevents of locking screen on android."
+version: 1.0
+minGameVersion: 154
+java: true
