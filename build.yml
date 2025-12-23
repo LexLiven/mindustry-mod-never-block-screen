@@ -1,0 +1,32 @@
+name: Build Mindustry Mod (Android)
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up JDK 8
+      uses: actions/setup-java@v4
+      with:
+        distribution: 'temurin'
+        java-version: '8'
+
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
+
+    - name: Build Android mod jar
+      run: ./gradlew androidJar
+
+    - name: Upload mod artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: QoLNeverLockScreenMod
+        path: build/libs/*.jar
